@@ -43,4 +43,4 @@ Welcome to the **Library Management System**!, a basic library website, includin
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/arunmp1/my_projects.git
+   git clone https://github.com/arunmp1/library_management_website-project.git
