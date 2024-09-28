@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Events</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .hero {
+            background-image: url('assets/images/library-background.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 50px 0;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+        }
+
+        svg {
+            width: 50%;
+            height: auto;
+            max-width: 250px;
+            cursor: pointer;
+        }
+
+        .hero-text h1,
+        .hero-text p {
+            text-align: center;
+            color: #fff;
+        }
+
+        .modal-content {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#"><i class="fas fa-book-reader"></i> Library</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html"><i class="fas fa-home"></i>
+                            Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="books.html"><i class="fas fa-book"></i> Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html"><i class="fas fa-concierge-bell"></i> Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html"><i class="fas fa-calendar-alt"></i> Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="hero">
+            <div class="hero-text">
+                <h1>Upcoming Events</h1>
+                <p>Join us for our exciting events and activities</p>
+                <div class="icon-container">
+                    <svg width="200" height="250" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        onclick="showModal()">
+                        <path
+                            d="M19 2H5C3.9 2 3 2.9 3 4V20C3 21.1 3.9 22 5 22H19C20.1 22 21 21.1 21 20V4C21 2.9 20.1 2 19 2ZM19 20H5V4H19V20ZM5 4H19V20H5V4Z"
+                            fill="none" />
+                        <image href="assets/images/events.svg" x="5" y="5" width="14" height="14">
+                            <animate attributeName="opacity" from="0" to="1" dur="2s" begin="0s" fill="freeze" />
+                        </image>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h2>Upcoming Events</h2>
+            <div class="events-grid">
+                <div class="event-card">
+                    <h3>Book Reading</h3>
+                    <p>Date: July 30, 2024</p>
+                    <p>Time: 3:00 PM - 5:00 PM</p>
+                    <p>Location: Main Library Hall</p>
+                    <button class="btn btn-primary">Learn More</button>
+                </div>
+                <div class="event-card">
+                    <h3>Author Meet and Greet</h3>
+                    <p>Date: August 5, 2024</p>
+                    <p>Time: 1:00 PM - 2:30 PM</p>
+                    <p>Location: Conference Room</p>
+                    <button class="btn btn-primary">Learn More</button>
+                </div>
+                <div class="event-card">
+                    <h3>Storytelling for Kids</h3>
+                    <p>Date: August 12, 2024</p>
+                    <p>Time: 10:00 AM - 11:30 AM</p>
+                    <p>Location: Children's Section</p>
+                    <button class="btn btn-primary">Learn More</button>
+                </div>
+                <div class="event-card">
+                    <h3>Research Workshop</h3>
+                    <p>Date: August 20, 2024</p>
+                    <p>Time: 2:00 PM - 4:00 PM</p>
+                    <p>Location: Study Room B</p>
+                    <button class="btn btn-primary">Learn More</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="text-center mt-5">
+        <p>&copy; 2024 Library Management System</p>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="eventModalLabel">Event Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Feel free to contact our library team to discuss hosting your event with us. We're always open to partnering with you to bring engaging events to our community.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showModal() {
+            var modal = new bootstrap.Modal(document.getElementById('eventModal'));
+            modal.show();
+        }
+    </script>
+</body>
+
+</html>

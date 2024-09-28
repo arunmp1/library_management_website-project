@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: url('backgroundimage1.jpg') no-repeat center center/cover;
+            padding: 60px 0;
+            color: white;
+            text-align: center;
+            position: relative; /* Ensure positioning context for children */
+            z-index: 1; /* Make sure header is above the image */
+        }
+
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.9);
+            z-index: 2; /* Ensure navbar is above the header */
+            position: relative; /* Allow z-index to take effect */
+        }
+
+        .hero {
+            padding: 40px 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-image {
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"><i class="fas fa-book-reader"></i> Library</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="books.html"><i class="fas fa-book"></i> Books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="services.html"><i class="fas fa-concierge-bell"></i> Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="events.html"><i class="fas fa-calendar-alt"></i> Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <div class="hero">
+            <div class="hero-text">
+                <h1>Library Services</h1>
+                <p>Explore the various services we offer to our community</p>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h2 class="text-center my-4">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="assets/images/service1.jpg" alt="Service 1" class="service-image">
+                    <div class="p-3">
+                        <h3>Book Reservations</h3>
+                        <p>Reserve your favorite books online and pick them up at your convenience.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="assets/images/service2.jpg" alt="Service 2" class="service-image">
+                    <div class="p-3">
+                        <h3>Reading Rooms</h3>
+                        <p>Enjoy a quiet and comfortable space for reading and studying.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="assets/images/service3.jpg" alt="Service 3" class="service-image">
+                    <div class="p-3">
+                        <h3>Digital Resources</h3>
+                        <p>Access a wide range of digital resources including e-books and online journals.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="assets/images/service4.jpg" alt="Service 4" class="service-image">
+                    <div class="p-3">
+                        <h3>Community Programs</h3>
+                        <p>Participate in our community programs and events designed for all age groups.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Library Management System</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

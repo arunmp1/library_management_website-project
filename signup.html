@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            background: url('backgroundimage1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+        }
+
+        .signup-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-control {
+            margin-bottom: 20px;
+            border-radius: 30px;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btn-custom {
+            background-color: #5A9;
+            color: white;
+            border-radius: 30px;
+        }
+
+        .btn-custom:hover {
+            background-color: #48A;
+        }
+
+        .form-footer {
+            text-align: center;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: -15px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html" style="color: white;">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            </div>
+        </div>
+    </nav>
+
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="signup-container col-md-4">
+            <div class="form-header">
+                <h2><i class="fas fa-user-plus"></i> Library Sign Up</h2>
+                <p>Join the library and explore a world of knowledge</p>
+            </div>
+
+            <form id="signupForm">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="name" placeholder="Full Name" required>
+                    <div class="error" id="nameError"></div>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email" placeholder="Email Address" required>
+                    <div class="error" id="emailError"></div>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" placeholder="Password" required>
+                    <div class="error" id="passwordError"></div>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" class="form-control" id="confirm-password" placeholder="Confirm Password" required>
+                    <div class="error" id="confirmPasswordError"></div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-custom btn-block w-100">Sign Up</button>
+                </div>
+            </form>
+
+            <div class="form-footer">
+                <p>Already a member? <a href="sighin.html">Sign In</a></p>
+            </div>            
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Regular expressions for validation
+        const nameRegex = /^[A-Za-z\s]+$/; // Only alphabets and spaces
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email regex
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/; // At least 8 characters, including letters and numbers
+
+        // Validate input in real-time
+        function validateInput(input, regex, errorElement, errorMessage) {
+            if (!regex.test(input.value)) {
+                errorElement.innerText = errorMessage;
+            } else {
+                errorElement.innerText = '';
+            }
+        }
+
+        // Validate name in real-time
+        document.getElementById('name').addEventListener('input', function() {
+            validateInput(this, nameRegex, document.getElementById('nameError'), 'Please enter a valid name (alphabets only).');
+        });
+
+        // Validate email in real-time
+        document.getElementById('email').addEventListener('input', function() {
+            validateInput(this, emailRegex, document.getElementById('emailError'), 'Please enter a valid email address.');
+        });
+
+        // Validate password in real-time
+        document.getElementById('password').addEventListener('input', function() {
+            validateInput(this, passwordRegex, document.getElementById('passwordError'), 'Password must be at least 8 characters long and contain only letters and numbers.');
+            // Also clear confirm password error if the password is valid
+            const confirmPasswordError = document.getElementById('confirmPasswordError');
+            if (this.value === document.getElementById('confirm-password').value) {
+                confirmPasswordError.innerText = '';
+            }
+        });
+
+        // Validate confirm password in real-time
+        document.getElementById('confirm-password').addEventListener('input', function() {
+            const password = document.getElementById('password').value;
+            const confirmPasswordError = document.getElementById('confirmPasswordError');
+            if (this.value !== password) {
+                confirmPasswordError.innerText = 'Passwords do not match.';
+            } else {
+                confirmPasswordError.innerText = '';
+            }
+        });
+
+        // Form submission validation
+        document.getElementById('signupForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            let isValid = true;
+
+            // Clear previous error messages
+            document.getElementById('nameError').innerText = '';
+            document.getElementById('emailError').innerText = '';
+            document.getElementById('passwordError').innerText = '';
+            document.getElementById('confirmPasswordError').innerText = '';
+
+            // Validate Full Name
+            const name = document.getElementById('name').value;
+            if (!nameRegex.test(name)) {
+                document.getElementById('nameError').innerText = 'Please enter a valid name (alphabets only).';
+                isValid = false;
+            }
+
+            // Validate Email
+            const email = document.getElementById('email').value;
+            if (!emailRegex.test(email)) {
+                document.getElementById('emailError').innerText = 'Please enter a valid email address.';
+                isValid = false;
+            }
+
+            // Validate Password
+            const password = document.getElementById('password').value;
+            if (!passwordRegex.test(password)) {
+                document.getElementById('passwordError').innerText = 'Password must be at least 8 characters long and contain letters and numbers.';
+                isValid = false;
+            }
+
+            // Validate Confirm Password
+            const confirmPassword = document.getElementById('confirm-password').value;
+            if (password !== confirmPassword) {
+                document.getElementById('confirmPasswordError').innerText = 'Passwords do not match.';
+                isValid = false;
+            }
+
+            // If valid, send data to server
+            if (isValid) {
+                const response = await fetch('http://localhost:3000/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email, password })
+                });
+
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert(data.message); // Show success message
+                } else {
+                    alert(data.error || 'An error occurred.'); // Show error message if available
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

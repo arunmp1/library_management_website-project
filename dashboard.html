@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome for icons -->
+    <style>
+        /* CSS for the Dashboard */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('dashboard.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        header {
+            background: rgba(76, 175, 80, 0.8);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 0 0 10px 10px;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        .user-info i {
+            margin-right: 8px;
+        }
+        .content {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 40px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            max-width: 800px;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin: 10px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: rgba(76, 175, 80, 0.8);
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+        p {
+            color: black;
+        }
+        marquee {
+            color: #333;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to E-Library</h1>
+        <!-- <div class="user-info">
+            <i class="fas fa-user"></i>
+            <span id="user-email">Guest</span> <!- Placeholder for user email -->
+        </div> 
+    </header>
+    
+    <marquee behavior="scroll" direction="left">
+        Don't miss out! Join our book fair this weekend and discover new arrivals every Monday!
+    </marquee>
+
+    <div class="content">
+        <h2>Your Dashboard</h2>
+        <p>Here you can manage your library activities and view borrowed books.</p>
+        
+        <!-- View My Books Button -->
+        <button onclick="viewBooks()">View My Books</button>
+        <button onclick="logout()">Logout</button>
+
+        <!-- Section for Borrowed Books -->
+        <div class="card">
+            <h3>Borrowed Books</h3>
+            <ul id="borrowed-books">
+                <li>Book Title 1 by Author 1</li>
+                <li>Book Title 2 by Author 2</li>
+                <li>Book Title 3 by Author 3</li>
+                <li>Book Title 4 by Author 4</li>
+            </ul>
+            <button onclick="viewBooks()">Manage Borrowed Books</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 E-Library. All rights reserved.</p>
+    </footer>
+
+
+    <script>
+       // Retrieve the email from session storage
+       const email = sessionStorage.getItem('userEmail');
+       console.log("Retrieved email from sessionStorage:", email); // Log to see if it's fetched correctly
+       document.getElementById('user-email').innerText = email ? email : 'Guest'; 
+
+        // Function to simulate viewing books
+        function viewBooks() {
+            alert("Viewing your borrowed books!"); // Placeholder functionality
+            // Here you can add functionality to display books
+        }
+
+        // Function to logout
+        function logout() {
+            sessionStorage.removeItem('userEmail'); // Clear the stored email
+            window.location.href = 'index.html'; // Redirect to the sign-in page
+        }
+    </script>
+    </script>
+</body>
+</html>

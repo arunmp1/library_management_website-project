@@ -1,0 +1,65 @@
+{
+    "books": [
+      {
+        "title": "The Enchanted Forest",
+        "author": "Ava Summers",
+        "genre": "Fantasy",
+        "year": 2018,
+        "ISBN": "978-1-234567-89-0",
+        "pages": 350,
+        "language": "English",
+        "availability": true
+      },
+      {
+        "title": "Galactic Voyager",
+        "author": "Zane Greyson",
+        "genre": "Science Fiction",
+        "year": 2021,
+        "ISBN": "978-1-987654-32-1",
+        "pages": 420,
+        "language": "English",
+        "availability": false
+      },
+      {
+        "title": "Mystery of the Lost City",
+        "author": "Clara Newton",
+        "genre": "Mystery",
+        "year": 2015,
+        "ISBN": "978-0-112233-44-5",
+        "pages": 280,
+        "language": "English",
+        "availability": true
+      },
+      {
+        "title": "Beneath the Crimson Sky",
+        "author": "Leo Martin",
+        "genre": "Historical Fiction",
+        "year": 2019,
+        "ISBN": "978-1-998877-65-4",
+        "pages": 390,
+        "language": "English",
+        "availability": true
+      },
+      {
+        "title": "Whispers in the Shadows",
+        "author": "Nina Blackwood",
+        "genre": "Thriller",
+        "year": 2020,
+        "ISBN": "978-1-443322-11-0",
+        "pages": 320,
+        "language": "English",
+        "availability": false
+      },
+      {
+        "title": "Dreams of the Last Kingdom",
+        "author": "Oscar Valerio",
+        "genre": "Adventure",
+        "year": 2017,
+        "ISBN": "978-1-556677-88-9",
+        "pages": 450,
+        "language": "English",
+        "availability": true
+      }
+    ]
+  }
+  

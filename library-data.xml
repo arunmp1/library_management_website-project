@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE library SYSTEM "library.dtd">
+<?xml-stylesheet type="text/xsl" href="library.xsl"?>
+<library xmlns="http://www.example.com/library">
+    <book>
+        <title>The Great Gatsby</title>
+        <author>F. Scott Fitzgerald</author>
+        <genre>Fiction</genre>
+        <year>1925</year>
+        <isbn>9780743273565</isbn>
+        <pages>180</pages>
+        <language>English</language>
+        <available>true</available>
+    </book>
+    <book>
+        <title>1984</title>
+        <author>George Orwell</author>
+        <genre>Dystopian</genre>
+        <year>1949</year>
+        <isbn>9780451524935</isbn>
+        <pages>328</pages>
+        <language>English</language>
+        <available>true</available>
+    </book>
+    <book>
+        <title>To Kill a Mockingbird</title>
+        <author>Harper Lee</author>
+        <genre>Fiction</genre>
+        <year>1960</year>
+        <isbn>9780061120084</isbn>
+        <pages>281</pages>
+        <language>English</language>
+        <available>false</available>
+    </book>
+    <book>
+        <title>Brave New World</title>
+        <author>Aldous Huxley</author>
+        <genre>Science Fiction</genre>
+        <year>1932</year>
+        <isbn>9780060850524</isbn>
+        <pages>268</pages>
+        <language>English</language>
+        <available>true</available>
+    </book>
+    <book>
+        <title>Moby-Dick</title>
+        <author>Herman Melville</author>
+        <genre>Adventure</genre>
+        <year>1851</year>
+        <isbn>9781503280786</isbn>
+        <pages>635</pages>
+        <language>English</language>
+        <available>false</available>
+    </book>
+    <book>
+        <title>Pride and Prejudice</title>
+        <author>Jane Austen</author>
+        <genre>Romance</genre>
+        <year>1813</year>
+        <isbn>9781503290563</isbn>
+        <pages>279</pages>
+        <language>English</language>
+        <available>true</available>
+    </book>
+    <book>
+        <title>War and Peace</title>
+        <author>Leo Tolstoy</author>
+        <genre>Historical Fiction</genre>
+        <year>1869</year>
+        <isbn>9780199232765</isbn>
+        <pages>1225</pages>
+        <language>English</language>
+        <available>false</available>
+    </book>
+    <book>
+        <title>The Odyssey</title>
+        <author>Homer</author>
+        <genre>Epic Poetry</genre>
+        <year>800</year>
+        <isbn>9780140268867</isbn>
+        <pages>541</pages>
+        <language>English</language>
+        <available>true</available>
+    </book>
+</library>

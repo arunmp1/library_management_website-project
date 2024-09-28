@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Books</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"
+          ><i class="fas fa-book-reader"></i> Library</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                ><i class="fas fa-home"></i> Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="books.html"
+                ><i class="fas fa-book"></i> Books</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html"
+                ><i class="fas fa-concierge-bell"></i> Services</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="events.html"
+                ><i class="fas fa-calendar-alt"></i> Events</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html"
+                ><i class="fas fa-envelope"></i> Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="hero">
+        <div class="hero-text">
+          <h1>Our Book Collection</h1>
+          <p>Discover our diverse collection of books</p>
+        </div>
+        <div>
+          <button id="fetchbooks">Fetch Books</button>
+          <input type="text" placeholder="Search book Name" id="search"/>
+          <select id="sorting">
+            <option value="asc">Name Ascending</option>
+            <option value="desc">Name Descending</option>
+          </select>
+          <div id="books-container"></div>
+          <div id="pagination-container"></div>
+          <script src="script1.js"></script>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section>
+        <br />
+        <h2>Available Books</h2>
+        <div class="books-grid">
+          <div class="book-card">
+            <img
+              src="assets/images/book1.jpg"
+              alt="Book 1"
+              class="book-cover"
+            />
+            <h3>The Diary of a Young Girl</h3>
+            <p>Author: Anne Frank</p>
+            <p>Genre: Biography</p>
+            <button class="btn btn-primary">More Info</button>
+          </div>
+          <div class="book-card">
+            <img
+              src="assets/images/book2.jpg"
+              alt="Book 2"
+              class="book-cover"
+            />
+            <h3>Einstein: His Life and Universe</h3>
+            <p>Author: Walter Isaacson</p>
+            <p>Genre: Biography</p>
+            <button class="btn btn-primary">More Info</button>
+          </div>
+          <div class="book-card">
+            <img
+              src="assets/images/book3.jpg"
+              alt="Book 3"
+              class="book-cover"
+            />
+            <h3>
+              I Am Malala: The Story of the Girl Who Stood Up for Education and
+              Was Shot by the Taliban
+            </h3>
+            <p>Author: Malala Yousafzai</p>
+            <p>Genre: Biography</p>
+            <button class="btn btn-primary">More Info</button>
+          </div>
+          <div class="book-card">
+            <img
+              src="assets/images/book4.jpg"
+              alt="Book 4"
+              class="book-cover"
+            />
+            <h3>A Promised Land</h3>
+            <p>Author: Barack Obama</p>
+            <p>Genre: Biography</p>
+            <button class="btn btn-primary">More Info</button>
+          </div>
+        </div>
+      </section>
+      </section>
+
+      <section>
+        <h2>Library Book List</h2>
+        <table class="table table-bordered table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th colspan="8" class="text-center">Library Management System</th>
+            </tr>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Genre</th>
+              <th>Year</th>
+              <th>ISBN</th>
+              <th>Pages</th>
+              <th>Language</th>
+              <th>Available</th>
+            </tr>
+          </thead>
+          <tbody id="booksTable"></tbody>
+        </table>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2024 Library Management System</p>
+    </footer>
+
+    <script>
+      document.getElementById("fetchbooks").addEventListener("click", function () {
+        const loadingMessage = document.createElement("p");
+        loadingMessage.textContent = "Data is loading...";
+        loadingMessage.id = "loadingMessage";
+        document.body.appendChild(loadingMessage);
+    
+        fetch("https://arunmp2447214.github.io/2447214_Library_Management/books.json")
+          .then((response) => response.json())
+          .then((data) => {
+            let tableContent = "";
+            data.books.forEach((book) => {
+              const available = book.available ? "Yes" : "No";
+              tableContent += `<tr>
+                                  <td>${book.title}</td>
+                                  <td>${book.author}</td>
+                                  <td>${book.genre}</td>
+                                  <td>${book.year}</td>
+                                  <td>${book.isbn}</td>
+                                  <td>${book.pages}</td>
+                                  <td>${book.language}</td>
+                                  <td>${available}</td>
+                                </tr>`;
+            });
+            document.getElementById("booksTable").innerHTML = tableContent;
+    
+            document.getElementById("loadingMessage").remove();
+          })
+          .catch((error) => {
+            console.error("Error fetching the books data:", error);
+            
+            loadingMessage.textContent = "Error loading data.";
+          });
+      });
+    </script>
+    
+  </body>
+</html>

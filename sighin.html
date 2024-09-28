@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Sign-In</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url('background2.jpg'); 
+            background-size: cover;
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-roboto">
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="w-full max-w-md p-8 bg-white shadow-lg rounded-lg bg-opacity-90 backdrop-filter backdrop-blur-md">
+            <h2 class="text-3xl font-bold text-center text-gray-800">Library Sign-In</h2>
+            <form id="signin-form" class="mt-6">
+                <div class="mb-4">
+                    <label for="email" class="block mb-2 text-sm text-gray-700">Email Address</label>
+                    <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300" placeholder="Enter your email" required>
+                </div>
+                <div class="mb-6">
+                    <label for="password" class="block mb-2 text-sm text-gray-700">Password</label>
+                    <input type="password" id="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="w-full px-4 py-2 font-bold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-200">Sign In</button>
+            </form>
+            <div class="mt-4 text-center">
+                <p class="text-sm text-gray-600">Don't have an account? <a href="signup.html" class="text-blue-500 hover:underline">Sign up here</a></p>
+            </div>
+        </div>
+    </div>
+</body> 
+<script>
+document.getElementById('signin-form').addEventListener('submit', async (e) => {
+    e.preventDefault(); // Prevent default form submission
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    console.log("Email:", email, "Password:", password); // Log email and password
+
+    try {
+        const response = await fetch('http://localhost:3000/signin', { // Ensure URL matches backend route
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+        console.log("Response from server:", data); // Log server response
+
+        if (response.ok) {
+            alert(data.message); // Successful login
+            sessionStorage.setItem('userEmail', data.email); // Save email to local storage
+            window.location.href = 'dashboard.html'; // Redirect to the dashboard page
+        } else {
+            alert(data.message); // Display error message
+        }
+    } catch (error) {
+        console.error("Error logging in:", error);
+        alert("Something went wrong. Please try again.");
+    }
+});
+
+
+</script>
+
+
+</html>
