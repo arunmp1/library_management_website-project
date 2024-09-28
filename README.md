@@ -2,7 +2,7 @@
 
 # Library Management System
 
-Welcome to the **Library Management System**!, a basic library website, including user authentication, book api fetching and geolocation api. It is equipped with a responsive interface and interactive CSS effects to enhance the user experience. Website link - https://arunmp1.github.io/my_projects/
+Welcome to the **Library Management System**!, a basic library website, including user authentication, book api fetching and geolocation api. It is equipped with a responsive interface and interactive CSS effects to enhance the user experience. Website link - https://arunmp1.github.io/library_management_website-project/
 
 ## Features
 
