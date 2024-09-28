@@ -5,7 +5,7 @@ const cors = require('cors');
 const fetch = require('node-fetch'); // Add this line for fetch
 
 // Import the User model
-const User = require('./models/user'); // Make sure to use the correct path
+const User = require('/user'); // Make sure to use the correct path
 
 const app = express();
 const PORT = 3000; 
